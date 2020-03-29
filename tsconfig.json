@@ -1,0 +1,11 @@
+{
+    "compilerOptions" : {
+        "strict" : true,
+        "lib" : ["ES5", "ES2015"]
+        // "allowJs": true,
+        // "target": "ES6"
+    },
+    // "include" : [], // 이 파일만 complie 하겠다.
+    // "exclude": [], // 이 파일들만 complie 하지 않겠다.
+    // "extends": []
+}
