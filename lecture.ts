@@ -96,11 +96,11 @@ class cls1 {
 
 
 
-interface obj<T> {
+interface obj<T extends string | number> { // T라는 임의의 타입. T의 범위(타입)를 제한하기위해 extends 사용.
     add: (a: T, b: T) => T
 }
 
-const a: obj<number> = {
+const a: obj<number> = { // 사용할때 타입을 정한다.
     add: (a, b) => a + b
 }
 
@@ -110,3 +110,30 @@ const b: obj<string> = {
 
 a.add(1, 2);
 b.add('1', '2');
+
+
+
+function makeGender(target: typeof Person) {
+    return class extends target {
+        gender = 'male';
+    }
+}
+
+// 데코레이터는 아직 실험적인 기능이다. javascript 개념이다.
+@makeGender
+class Person {
+    title: string;
+    age = 27;
+
+    constructor(title: string) {
+        this.title = title;
+    }
+
+    setTitle(title: string) {
+
+    }
+
+    sayTitle(): any {
+        return this.title;
+    }
+}
